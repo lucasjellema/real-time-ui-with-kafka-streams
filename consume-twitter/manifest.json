@@ -1,0 +1,9 @@
+{
+    "runtime":{
+      "majorVersion":"6"
+    },
+    "command": "node index.js",
+    "release": {},
+    "notes": "NodeJS Twitter feed into EventHub"
+  }
+  

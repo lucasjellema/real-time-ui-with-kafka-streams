@@ -1,0 +1,21 @@
+{
+  "name": "twitfeedfile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Kunal",
+    "Rupani"
+  ],
+  "author": "Kunal Rupani",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "kafka-node": "^2.2.2",
+    "twit": "^2.2.9"
+  }
+}

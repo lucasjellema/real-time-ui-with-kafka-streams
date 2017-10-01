@@ -1,0 +1,324 @@
+{
+    "created_at": "Fri Sep 29 12:53:36 +0000 2017",
+    "id": 913748596121493500,
+    "id_str": "913748596121493504",
+    "text": "RT @Oracle: Do you have any questions for Oracle CEO Mark Hurd? Tag #AskMark &amp; @MarkVHurd to hear from him during #oow17. https://t.co/Tibs…",
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+        "id": 869872395040940000,
+        "id_str": "869872395040940032",
+        "name": "In👄Palit",
+        "screen_name": "InPalit",
+        "location": null,
+        "url": null,
+        "description": null,
+        "translator_type": "none",
+        "protected": false,
+        "verified": false,
+        "followers_count": 2,
+        "friends_count": 22,
+        "listed_count": 0,
+        "favourites_count": 129,
+        "statuses_count": 790,
+        "created_at": "Wed May 31 11:05:15 +0000 2017",
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "lang": "th",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "profile_background_color": "F5F8FA",
+        "profile_background_image_url": "",
+        "profile_background_image_url_https": "",
+        "profile_background_tile": false,
+        "profile_link_color": "1DA1F2",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/900261955859955713/SebZYuQ9_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/900261955859955713/SebZYuQ9_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/869872395040940032/1503474151",
+        "default_profile": true,
+        "default_profile_image": false,
+        "following": null,
+        "follow_request_sent": null,
+        "notifications": null
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "retweeted_status": {
+        "created_at": "Thu Sep 28 17:47:23 +0000 2017",
+        "id": 913460139314651100,
+        "id_str": "913460139314651136",
+        "text": "Do you have any questions for Oracle CEO Mark Hurd? Tag #AskMark &amp; @MarkVHurd to hear from him during #oow17. https://t.co/TibszaN7If",
+        "display_text_range": [
+            0,
+            113
+        ],
+        "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 809273,
+            "id_str": "809273",
+            "name": "Oracle",
+            "screen_name": "Oracle",
+            "location": "Redwood Shores, CA",
+            "url": "http://www.oracle.com/",
+            "description": "Leading enterprise and SMB SaaS application suites for ERP, HCM & CX, with best-in-class database PaaS & IaaS from data centers worldwide.",
+            "translator_type": "none",
+            "protected": false,
+            "verified": true,
+            "followers_count": 689354,
+            "friends_count": 917,
+            "listed_count": 6830,
+            "favourites_count": 2777,
+            "statuses_count": 15462,
+            "created_at": "Sat Mar 03 23:54:26 +0000 2007",
+            "utc_offset": -25200,
+            "time_zone": "Pacific Time (US & Canada)",
+            "geo_enabled": true,
+            "lang": "en",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "profile_background_color": "FFFFFF",
+            "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/754829745/15800ac44cee490b5f79207cac02bfe1.jpeg",
+            "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/754829745/15800ac44cee490b5f79207cac02bfe1.jpeg",
+            "profile_background_tile": false,
+            "profile_link_color": "FF0000",
+            "profile_sidebar_border_color": "FFFFFF",
+            "profile_sidebar_fill_color": "F2F2F2",
+            "profile_text_color": "333333",
+            "profile_use_background_image": true,
+            "profile_image_url": "http://pbs.twimg.com/profile_images/800840075311333376/515GX-Cc_normal.jpg",
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/800840075311333376/515GX-Cc_normal.jpg",
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/809273/1500573984",
+            "default_profile": false,
+            "default_profile_image": false,
+            "following": null,
+            "follow_request_sent": null,
+            "notifications": null
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": {
+            "id": "a409256339a7c6a1",
+            "url": "https://api.twitter.com/1.1/geo/id/a409256339a7c6a1.json",
+            "place_type": "city",
+            "name": "Redwood City",
+            "full_name": "Redwood City, CA",
+            "country_code": "US",
+            "country": "United States",
+            "bounding_box": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -122.28853,
+                            37.443954
+                        ],
+                        [
+                            -122.28853,
+                            37.550633
+                        ],
+                        [
+                            -122.177339,
+                            37.550633
+                        ],
+                        [
+                            -122.177339,
+                            37.443954
+                        ]
+                    ]
+                ]
+            },
+            "attributes": {}
+        },
+        "contributors": null,
+        "is_quote_status": false,
+        "quote_count": 5,
+        "reply_count": 27,
+        "retweet_count": 160,
+        "favorite_count": 564,
+        "entities": {
+            "hashtags": [
+                {
+                    "text": "AskMark",
+                    "indices": [
+                        56,
+                        64
+                    ]
+                },
+                {
+                    "text": "oow17",
+                    "indices": [
+                        106,
+                        112
+                    ]
+                }
+            ],
+            "urls": [],
+            "user_mentions": [
+                {
+                    "screen_name": "MarkVHurd",
+                    "name": "Mark Hurd",
+                    "id": 414399556,
+                    "id_str": "414399556",
+                    "indices": [
+                        71,
+                        81
+                    ]
+                }
+            ],
+            "symbols": [],
+            "media": [
+                {
+                    "id": 913460086177112000,
+                    "id_str": "913460086177112064",
+                    "indices": [
+                        114,
+                        137
+                    ],
+                    "media_url": "http://pbs.twimg.com/media/DK1DG9EVoAAp4Kc.jpg",
+                    "media_url_https": "https://pbs.twimg.com/media/DK1DG9EVoAAp4Kc.jpg",
+                    "url": "https://t.co/TibszaN7If",
+                    "display_url": "pic.twitter.com/TibszaN7If",
+                    "expanded_url": "https://twitter.com/Oracle/status/913460139314651136/photo/1",
+                    "type": "photo",
+                    "sizes": {
+                        "medium": {
+                            "w": 1200,
+                            "h": 600,
+                            "resize": "fit"
+                        },
+                        "large": {
+                            "w": 1600,
+                            "h": 800,
+                            "resize": "fit"
+                        },
+                        "thumb": {
+                            "w": 150,
+                            "h": 150,
+                            "resize": "crop"
+                        },
+                        "small": {
+                            "w": 680,
+                            "h": 340,
+                            "resize": "fit"
+                        }
+                    }
+                }
+            ]
+        },
+        "extended_entities": {
+            "media": [
+                {
+                    "id": 913460086177112000,
+                    "id_str": "913460086177112064",
+                    "indices": [
+                        114,
+                        137
+                    ],
+                    "media_url": "http://pbs.twimg.com/media/DK1DG9EVoAAp4Kc.jpg",
+                    "media_url_https": "https://pbs.twimg.com/media/DK1DG9EVoAAp4Kc.jpg",
+                    "url": "https://t.co/TibszaN7If",
+                    "display_url": "pic.twitter.com/TibszaN7If",
+                    "expanded_url": "https://twitter.com/Oracle/status/913460139314651136/photo/1",
+                    "type": "photo",
+                    "sizes": {
+                        "medium": {
+                            "w": 1200,
+                            "h": 600,
+                            "resize": "fit"
+                        },
+                        "large": {
+                            "w": 1600,
+                            "h": 800,
+                            "resize": "fit"
+                        },
+                        "thumb": {
+                            "w": 150,
+                            "h": 150,
+                            "resize": "crop"
+                        },
+                        "small": {
+                            "w": 680,
+                            "h": 340,
+                            "resize": "fit"
+                        }
+                    }
+                }
+            ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "filter_level": "low",
+        "lang": "en"
+    },
+    "is_quote_status": false,
+    "quote_count": 0,
+    "reply_count": 0,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "entities": {
+        "hashtags": [
+            {
+                "text": "AskMark",
+                "indices": [
+                    68,
+                    76
+                ]
+            },
+            {
+                "text": "oow17",
+                "indices": [
+                    118,
+                    124
+                ]
+            }
+        ],
+        "urls": [],
+        "user_mentions": [
+            {
+                "screen_name": "Oracle",
+                "name": "Oracle",
+                "id": 809273,
+                "id_str": "809273",
+                "indices": [
+                    3,
+                    10
+                ]
+            },
+            {
+                "screen_name": "MarkVHurd",
+                "name": "Mark Hurd",
+                "id": 414399556,
+                "id_str": "414399556",
+                "indices": [
+                    83,
+                    93
+                ]
+            }
+        ],
+        "symbols": []
+    },
+    "favorited": false,
+    "retweeted": false,
+    "filter_level": "low",
+    "lang": "en",
+    "timestamp_ms": "1506689616600"
+}
