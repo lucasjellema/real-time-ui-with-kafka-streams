@@ -1,0 +1,21 @@
+{
+  "name": "part3",
+  "version": "1.0.0",
+  "description": "Trying out the Express framework",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lucas Jellema",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "bufferutil": "3.0.2",
+    "express": "^4.13.4",
+    "kafka-node": "^2.1.0",
+    "request": "^2.81.0",
+    "serve-static": "^1.10.2",
+    "utf-8-validate": "3.0.3",
+    "ws": "3.2.0"
+  }
+}

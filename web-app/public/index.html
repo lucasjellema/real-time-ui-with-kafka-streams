@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Oracle OpenWorld, JavaOne and OracleCode Tweet Master</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        // assume that API service is published on same server that is the server of this HTML file
+        var source = new EventSource("../updates");
+        source.onmessage = function (event) {
+            var data = JSON.parse(event.data);
+            if (data.eventType == 'tweetAnalytics') {
+                console.log("tweet analytics!!!!");
+                var span = document.getElementById(data.conference + "TweetCount");
+                span.innerHTML = data.tweetCount;
+            } else {
+                var table = document.getElementById("tweetsTable");
+                var row = table.insertRow(1); // after header
+                var likeCell = row.insertCell(0);
+                var conferenceCell = row.insertCell(1);
+                var authorCell = row.insertCell(2);
+                var tweetCell = row.insertCell(3);
+                var tagCell = row.insertCell(4);
+                conferenceCell.innerHTML = data.tagFilter;
+                authorCell.innerHTML = data.author;
+                tweetCell.innerHTML = data.text;
+                tagCell.innerHTML = data.hashtag;
+                likeCell.innerHTML = `<img src="images/like-tweet.jpg" width="40" onclick="like('${data.tweetId}')"/>`;
+            }
+        };//onMessage
+    </script>
+    <script>
+        var HOST = location.origin.replace(/^http/, 'ws')
+        var ws = new WebSocket(HOST);
+
+        ws.onmessage = function (event) {
+            var el = document.getElementById('server-time');
+            el.innerHTML = 'Server time: ' + event.data;
+        };
+    </script>
+</head>
+
+<body>
+        <div class="container-fluid">
+    <h1>Oracle OpenWorld, JavaOne and Oracle Code Tweet Board</h1>
+    <br/>
+    <div id="server-time" style="display:none;">
+    </div>
+    <div id="output">
+    </div>
+    <div id="input">
+    </div>
+    <h2>Recent Tweet Likes</h2>
+    <table id="recentLikesTable" style="width:70%;display: inline-block">
+        <tr>
+            <th>Time</th>
+            <th>Conference</th>
+            <th>Tweet</th>
+            <th>Hashtag</th>
+        </tr>
+    </table>
+    <h2>Current Tweet Count</h2>
+    <table id="currentTweetCountTable" >
+        <tr>
+            <th>Conference</th>
+            <th>Tweet Count</th>
+        </tr>
+        <tr>
+            <td>Oracle Code</td>
+            <td><span id="oraclecodeTweetCount"></span></td>
+        </tr>
+        <tr>
+            <td>JavaOne</td>
+            <td><span id="javaoneTweetCount"></span></td>
+        </tr>
+        <tr>
+            <td>Oracle OpenWorld</td>
+            <td><span id="oow17TweetCount"></span></td>
+        </tr>
+    </table>
+    <h2>Live Tweet Stream</h2>
+    <table id="tweetsTable" >
+        <tr>
+            <th><img src="images/like-tweet.jpg" width="100" /></th>
+            <th>Conference&nbsp;</th>
+            <th>Author&nbsp;</th>
+            <th>Tweet&nbsp;</th>
+            <th>Hashtag</th>
+        </tr>
+    </table>
+    <br/>
+ </div>
+    <script src="js/websocket.js"></script>
+
+</body>
+
+</html>
