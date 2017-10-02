@@ -8,7 +8,7 @@ var tweetLikeProducer = module.exports;
 var EVENT_HUB_PUBLIC_IP = '192.168.188.102';
 
 // tru event hub var TOPIC_NAME = 'partnercloud17-microEventBus';
-var TOPIC_NAME = 'tweetLikes';
+var TOPIC_NAME = 'tweetLikeTopic';
 var ZOOKEEPER_PORT = 2181;
 
 var Producer = kafka.Producer;
@@ -20,14 +20,16 @@ let payloads = [
 ];
 
 tweetLikeProducer.produceTweetLike = function(tweetLikeEvent) {
+  var tle = JSON.parse(JSON.stringify(tweetLikeEvent));
+  tle.eventType = "tweetLikeEvent";
     KeyedMessage = kafka.KeyedMessage,
-      tweetKM = new KeyedMessage(tweetLikeEvent.tweetId, JSON.stringify(tweetLikeEvent)),
+      tweetKM = new KeyedMessage(tweetLikeEvent.tweetId, JSON.stringify(tle) ),
       payloads[0].messages = tweetKM;
 
     producer.send(payloads, function (err, data) {
       if (err) {
         console.error(err);
       }
-      console.log(data);
+      console.log("published tweetLikeEVent"+data);
     });
 }//produceTweetLike
