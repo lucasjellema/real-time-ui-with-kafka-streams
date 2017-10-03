@@ -1,0 +1,14 @@
+{
+  "name": "generate-tweet-events",
+  "version": "1.0.0",
+  "description": "Node app to produce tweet events to Event Hub Topic",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lucas Jellema",
+  "license": "ISC",
+  "dependencies": {
+    "kafka-node": "^2.2.3"
+  }
+}
