@@ -1,11 +1,9 @@
 // before running, either globally install kafka-node  (npm install kafka-node)
 // or add kafka-node to the dependencies of the local application
 var fs = require('fs')
-// tru event hub var EVENT_HUB_PUBLIC_IP = '129.144.150.24';
 // local Kafka Cluster
 var EVENT_HUB_PUBLIC_IP = '192.168.188.102';
 
-// tru event hub var TOPIC_NAME = 'partnercloud17-microEventBus';
 var TOPIC_NAME = 'tweetsTopic';
 var ZOOKEEPER_PORT = 2181;
 

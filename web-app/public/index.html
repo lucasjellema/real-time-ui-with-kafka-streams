@@ -13,63 +13,10 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-        // assume that API service is published on same server that is the server of this HTML file
-        var source = new EventSource("../updates");
-        source.onmessage = function (event) {
-            var data = JSON.parse(event.data);
-            if (data.eventType == 'tweetAnalytics') {
-                console.log("tweet analytics!!!!");
-                var span = document.getElementById(data.conference + "TweetCount");
-                span.innerHTML = data.tweetCount;
-            } else {
-                if (data.eventType == 'tweetLikesAnalytics') {
-                    console.log("tweet likes top 3  analytics!!!!");
-                    // {"nrs":[{"tweetId":"1495112906610001DCWw","conference":"oow17","count":27,"window":null},{"tweetId":"1492900954165001X6eF","conference":"oow17","count":22,"window":null},{"tweetId":"1493662130350001fA9R","conference":"oow17","count":20,"window":null,"text":"Hey mum, I am a speaker   at #oow17 Automating the Cloud for Government","author":"Rob Jones"},null],"eventType":"tweetLikesAnalytics"}
-                    var conference = data.conference;
-                    var timeCell = document.getElementById(conference + "Top3LikesTime");
-                    timeCell.innerHTML = new Date().toLocaleTimeString();
-                    var top3LikesTable = document.getElementById(conference + "Top3LikesTimeTable");
-                    console.log(top3LikesTable);
-                    while(top3LikesTable.rows.length > 1) {
-                        top3LikesTable.deleteRow(1);
-                    }
-                    for (i = 0; i < data.nrs.length; i++) {
-                        if (data.nrs[i] && data.nrs[i].count) {
-                            var row = top3LikesTable.insertRow(i + 1); // after header
-                            var tweetCell = row.insertCell(0);
-                            var authorCell = row.insertCell(1);
-                            var countCell = row.insertCell(2);
-                            authorCell.innerHTML = data.nrs[i].author;
-                            tweetCell.innerHTML = data.nrs[i].text;
-                            countCell.innerHTML = data.nrs[i].count;
-                        }
-                    }//for
-
-                } else {
-                    var table = document.getElementById("tweetsTable");
-                    var row = table.insertRow(1); // after header
-                    var likeCell = row.insertCell(0);
-                    var conferenceCell = row.insertCell(1);
-                    var authorCell = row.insertCell(2);
-                    var tweetCell = row.insertCell(3);
-                    var tagCell = row.insertCell(4);
-                    conferenceCell.innerHTML = data.tagFilter;
-                    authorCell.innerHTML = data.author;
-                    tweetCell.innerHTML = data.text;
-                    tagCell.innerHTML = data.hashtag;
-                    likeCell.innerHTML = `<img src="images/like-tweet.jpg" width="40" onclick="like('${data.tweetId}')"/>`;
-                }
-            }
-        };//onMessage
-    </script>
-    <script>
-        var HOST = location.origin.replace(/^http/, 'ws')
-        var ws = new WebSocket(HOST);
-
-        ws.onmessage = function (event) {
-            var el = document.getElementById('server-time');
-            el.innerHTML = 'Server time: ' + event.data;
-        };
+        function toggle(elementId) {
+           var elementToToggle =  document.getElementById(elementId);
+           elementToToggle.style.display = elementToToggle.style.display=='none'?'':'none'; 
+        }
     </script>
 </head>
 
@@ -77,87 +24,95 @@
     <div class="container-fluid">
         <h1>Oracle OpenWorld, JavaOne and Oracle Code Tweet Board</h1>
         <br/>
-        <div id="server-time" style="display:none;">
-        </div>
+        <!-- output is container used by sse-handler -->
         <div id="output">
         </div>
-        <div id="input">
+        <a href="#" onclick="toggle('recentTweetLikes')">Toggle Recent Tweet Likes</a>
+        <div id="recentTweetLikes"  style="display:none">
+            <h2>Recent Tweet Likes</h2>
+            <table id="recentLikesTable" style="width:70%;display: inline-block">
+                <tr>
+                    <th>Time</th>
+                    <th>Conference</th>
+                    <th>Tweet</th>
+                    <th>Hashtag</th>
+                </tr>
+            </table>
         </div>
-        <h2>Recent Tweet Likes</h2>
-        <table id="recentLikesTable" style="width:70%;display: inline-block">
-            <tr>
-                <th>Time</th>
-                <th>Conference</th>
-                <th>Tweet</th>
-                <th>Hashtag</th>
-            </tr>
-        </table>
-        <h2>Running Top 3 Tweet Likes</h2>
-        <table id="recentLikesTable">
-            <tr>
-                <th>Time</th>
-                <th>Conference</th>
-                <th>Running Top 3</th>
-            </tr>
-            <tr>
-                <td id="oow17Top3LikesTime"></td>
-                <td>Oracle OpenWorld</th>
-                    <td>
-                        <table id="oow17Top3LikesTimeTable">
-                            <tr>
-                                <th>Tweet</th>
-                                <th>Author</th>
-                                <th>Tweet Count</th>
-                            </tr>
-                        </table>
-                    </td>
-            </tr>
-            <tr>
-                <td id="javaoneTop3LikesTime"></td>
-                <td>JavaOne</th>
-                    <td>
-                        <table id="javaoneTop3LikesTimeTable">
-                            <tr>
-                                <th>Tweet</th>
-                                <th>Author</th>
-                                <th>Tweet Count</th>
-                            </tr>
-                        </table>
-                    </td>
-            </tr>
-            <tr>
-                <td id="oraclecodeTop3LikesTime"></td>
-                <td>Oracle Code</th>
-                    <td>
-                        <table id="oraclecodeTop3LikesTimeTable">
-                            <tr>
-                                <th>Tweet</th>
-                                <th>Author</th>
-                                <th>Tweet Count</th>
-                            </tr>
-                        </table>
-                    </td>
-            </tr>
-        </table>
-        <h2>Current Tweet Count</h2>
-        <table id="currentTweetCountTable">
-            <tr>
-                <th>Conference</th>
-                <th>Tweet Count</th>
-            </tr>
-            <tr>
-                <td>Oracle Code</td>
-                <td><span id="oraclecodeTweetCount"></span></td>
-            </tr>
-            <tr>
-                <td>JavaOne</td>
-                <td><span id="javaoneTweetCount"></span></td>
-            </tr>
-            <tr>
-                <td>Oracle OpenWorld</td>
-                <td><span id="oow17TweetCount"></span></td>
-            </tr>
-        </table>
+        <br/>
+        <a href="#" onclick="toggle('runningTop3TweetLikes')">Toggle Running Top 3 Tweet Likes</a>
+        <div id="runningTop3TweetLikes" style="display:none">
+            <h2>Running Top 3 Tweet Likes</h2>
+            <table id="recentLikesTable">
+                <tr>
+                    <th>Time</th>
+                    <th>Conference</th>
+                    <th>Running Top 3</th>
+                </tr>
+                <tr>
+                    <td id="oow17Top3LikesTime"></td>
+                    <td>Oracle OpenWorld</th>
+                        <td>
+                            <table id="oow17Top3LikesTimeTable">
+                                <tr>
+                                    <th>Tweet</th>
+                                    <th>Author</th>
+                                    <th>Tweet Count</th>
+                                </tr>
+                            </table>
+                        </td>
+                </tr>
+                <tr>
+                    <td id="javaoneTop3LikesTime"></td>
+                    <td>JavaOne</th>
+                        <td>
+                            <table id="javaoneTop3LikesTimeTable">
+                                <tr>
+                                    <th>Tweet</th>
+                                    <th>Author</th>
+                                    <th>Tweet Count</th>
+                                </tr>
+                            </table>
+                        </td>
+                </tr>
+                <tr>
+                    <td id="oraclecodeTop3LikesTime"></td>
+                    <td>Oracle Code</th>
+                        <td>
+                            <table id="oraclecodeTop3LikesTimeTable">
+                                <tr>
+                                    <th>Tweet</th>
+                                    <th>Author</th>
+                                    <th>Tweet Count</th>
+                                </tr>
+                            </table>
+                        </td>
+                </tr>
+            </table>
+        </div>
+        <br/>
+        <a href="#" onclick="toggle('currentTweetCount')">Toggle Running Tweet Count</a>
+        <div id="currentTweetCount" style="display:none">
+            <h2>Current Tweet Count</h2>
+            <table id="currentTweetCountTable">
+                <tr>
+                    <th>Conference</th>
+                    <th>Tweet Count</th>
+                </tr>
+                <tr>
+                    <td>Oracle Code</td>
+                    <td><span id="oraclecodeTweetCount"></span></td>
+                </tr>
+                <tr>
+                    <td>JavaOne</td>
+                    <td><span id="javaoneTweetCount"></span></td>
+                </tr>
+                <tr>
+                    <td>Oracle OpenWorld</td>
+                    <td><span id="oow17TweetCount"></span></td>
+                </tr>
+            </table>
+        </div>
         <h2>Live Tweet Stream</h2>
         <table id="tweetsTable">
             <tr>
@@ -171,6 +126,7 @@
         <br/>
     </div>
     <script src="js/websocket.js"></script>
+    <script src="js/sse-handler.js"></script>
 
 </body>
 

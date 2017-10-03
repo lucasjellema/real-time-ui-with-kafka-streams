@@ -14,7 +14,7 @@ function onMessage(evt) {
     if (message.eventType == 'tweetLiked') {
         var likedTweet = message.likedTweet;
         handleFreshTweetLike(likedTweet);
-        writeToScreen("TweetLiked: " + likedTweet.text);
+        writeToScreen("Tweet Liked: " + likedTweet.text);
     }
 
 }
@@ -58,6 +58,5 @@ function like(tweetId) {
 }
 
 function sendText(json) {
-    console.log("sending text: " + json);
     websocket.send(json);
 }
